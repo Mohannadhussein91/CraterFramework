@@ -10,7 +10,7 @@ import io.cucumber.junit.CucumberOptions;
 		features="./src/test/resources/features",
                  glue="step_defintions",
                  dryRun=true,
-                 tags =""
+                 tags ="@Login"
              )
 public class DryRun {
 
