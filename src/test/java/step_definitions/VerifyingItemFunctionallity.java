@@ -1,4 +1,4 @@
-package step_definitions44;
+package step_definitions;
 
 public class VerifyingItemFunctionallity {
 
