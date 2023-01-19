@@ -17,7 +17,7 @@
 ## (Comments)
 #Sample Feature Definition Template
 @tag
-Feature: Titl
+Feature: Tit
 
   @tag1
   Scenario: Title of your scenario
