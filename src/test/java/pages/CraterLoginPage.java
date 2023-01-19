@@ -6,9 +6,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import utils.Driver;
 
-public class CraterHomePage {
+public class CraterLoginPage {
 
-	public CraterHomePage() {
+	public CraterLoginPage() {
 		PageFactory.initElements(Driver.getDriver(), this);
 	}
 
@@ -55,6 +55,23 @@ public class CraterHomePage {
 	
 	@FindBy (xpath = "//p[contains(text(), 'These credentials do not match our records.')]")
 	public WebElement invalidUserErrorMessage;
+	
+	@FindBy (xpath = "//span[@class = 'block mt-0.5 text-sm text-red-500']")
+	public WebElement Errorinlinemessage;
+	
+	@FindBy (xpath = "//div[contains(text() ,'Enter email')]")
+	public WebElement resetPassword;
+	
+	@FindBy (xpath = "//button[@class='inline-flex whitespace-nowrap items-center border "
+			+ "font-medium focus:outline-none focus:ring-2 "
+			+ "focus:ring-offset-2 px-4 py-2 text-sm leading-5 rounded-md border-transparent shadow-sm "
+			+ "text-white bg-primary-600 hover:bg-primary-700 focus:ring-primary-500']")
+	public WebElement sendRestLinkButton;
+	
+	@FindBy (linkText = "Back to Login?")
+	public WebElement backToLoginLink;
+	
+	
 	
 	
 	

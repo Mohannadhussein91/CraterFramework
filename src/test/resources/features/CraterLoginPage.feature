@@ -1,21 +1,3 @@
-#Author: your.email@your.domain.com
-#Keywords Summary :
-#Feature: List of scenarios.
-#Scenario: Business rule through list of steps with arguments.
-#Given: Some precondition step
-#When: Some key actions
-#Then: To observe outcomes or validation
-#And,But: To enumerate more Given,When,Then steps
-#Scenario Outline: List of steps for data-driven as an Examples and <placeholder>
-#Examples: Container for s table
-#Background: List of steps run before each of the scenarios
-#""" (Doc Strings)
-#| (Data Tables)
-#@ (Tags/Labels):To group Scenarios
-#<> (placeholder)
-#""
-## (Comments)
-#Sample Feature Definition Template
 @Login @smokeTest
 Feature: CraterLoginPageComponents
 
@@ -41,17 +23,48 @@ Feature: CraterLoginPageComponents
      Examples: 
     | username                    |   password    |    
     | husseinmohanad@gmail.com    |   Test1234    |
+    | alinka.khayrullina@gmail.com|   Test1234    |
     
-     @invalidLogin
-  Scenario Outline:: Login as a user with valid credentials
+   @invalidLogin
+  Scenario Outline:: Login as a user with invalid credentials
     Given navigate to the Prime Tech Invoice Applicationlogin page
     Then enter  invalid "<username>" and invalid "<password>"
     And click on the login button
     Then the system should display a flash error message
-    And user is not logged in
+    And user is not logged in 
     
      Examples: 
     | username                 |   password              |    
     | Invalidemail@yaho.com    |   invalidpassword123    |
+    
+     @emptyLogin
+    Scenario Outline:: Login as a user leaving username and password fields empty
+    Given navigate to the Prime Tech Invoice Applicationlogin page
+    Then enter  invalid "<username>" and invalid "<password>"
+    And click on the login button
+    Then the system should display inline error messages
+    And user is not logged in 
+    
+      Examples: 
+    | username                 |   password              |    
+    |     |      |
+    
+    @forgotPassword
+    Scenario: Forgot Password Link
+    Given navigate to the Prime Tech Invoice Applicationlogin page
+    And user click on the Forgot PAssword Link
+    Then the user should be directed to a new page
+    And user should see Textbox titeld Enter Email
+    And user should see button titeld Send Rest Link
+    And user should see Link titeld Back To Login
+    
+    
+    
+    
+    
+    
+   
+    
+    
  
  
