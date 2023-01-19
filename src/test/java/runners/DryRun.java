@@ -7,10 +7,10 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features="./src/test/resources/Features",
-                 glue="Step_Definitions",
+		features="./src/test/resources/features",
+                 glue="step_definitions",
                  dryRun=true,
-                 tags ="@CustomerPage"
+                 tags =""
              )
 public class DryRun {
 
