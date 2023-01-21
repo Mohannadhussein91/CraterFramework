@@ -16,4 +16,12 @@ public DashboradPage() {
    @FindBy (xpath = "//a[contains(text(), 'Customers')]")
    public WebElement Customers;
    
+
+   @FindBy (xpath = "//a[contains(text(), 'Items')]")
+	public WebElement commonPageItemsLink;
+
+
+
+
+
 }
