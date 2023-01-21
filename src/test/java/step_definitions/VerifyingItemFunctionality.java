@@ -77,7 +77,7 @@ public class VerifyingItemFunctionality {
 	@Then("User should be directed to a new page with name and price and unit and description")
 	public void user_should_be_directed_to_a_new_page_with_name_and_price_and_unit_and_description() throws InterruptedException {
 		// verify that the add item add on displays
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		Assert.assertTrue(itemsPage.newItemHeaderText.isDisplayed());
 	}
 
