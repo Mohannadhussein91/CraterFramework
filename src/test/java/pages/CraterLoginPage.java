@@ -4,9 +4,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utils.BrowserUtils;
 import utils.Driver;
+import utils.TestDataReader;
 
 public class CraterLoginPage {
+	BrowserUtils browser = new BrowserUtils();
 
 	public CraterLoginPage() {
 		PageFactory.initElements(Driver.getDriver(), this);
@@ -71,6 +74,12 @@ public class CraterLoginPage {
 	@FindBy (linkText = "Back to Login?")
 	public WebElement backToLoginLink;
 	
+	
+	public void Login(String username, String password1) {
+		Driver.getDriver().get(TestDataReader.getProperty("craterUrl"));
+		 browser.sendKeysWithActionsClass(useremail, username);
+		    browser.sendKeysWithActionsClass(password, password1);
+	}
 	
 	
 	

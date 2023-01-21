@@ -13,6 +13,9 @@ public DashboradPage() {
    @FindBy (xpath = "//span[text()='Amount Due']")
     public WebElement amountDueText;
    
+   @FindBy (xpath = "//a[contains(text(), 'Customers')]")
+   public WebElement Customers;
+   
    @FindBy (xpath = "//a[contains(text(), 'Items')]")
 	public WebElement commonPageItemsLink;
 
