@@ -10,28 +10,29 @@ public class customersApi {
 	public static void main(String[] args) {
 		
 		//createCustomer();
+		//updateCustomer();
 		deleteCustomer();
 	
 	
 		
 	}
 	
-	
+	int ID;
 	
 	public static void createCustomer() {
 		
 		
 			RestAssured.baseURI = "http://invoice.primetech-apps.com/api/v1/customers";
 			
-			
+			String token = "220|3WDMmzFCU6bvYmTGC2nm1VEcDN15DhsAOkjaelyA";
 			String requestBody = "{\n"
-					+ "    \"name\": \"Hussein1f44\",\n"
-					+ "    \"email\": \"jenkins.shaxvddnelle@example.org\",\n"
+					+ "    \"name\": \"Hussein18\",\n"
+					+ "    \"email\": \"jekshfssffxvddnelle@example.org\",\n"
 					+ "    \"enable_portal\": true,\n"
 					+ "    \"billing\": [],\n"
 					+ "    \"shipping\": []\n"
 					+ "}";
-			String token = "142|tA7VJIIaW0Zs0BgFQ0wKSyAkgFwSNrowftj3guoP";
+			
 			
 			
 			Response myResponse = RestAssured.given().accept(ContentType.JSON)
@@ -40,8 +41,41 @@ public class customersApi {
 			
 			myResponse.then().statusCode(200).and().contentType("application/json");
 			myResponse.prettyPrint();
+		
+			
+			 String newID = myResponse.asString().substring(14, 17);
+			
+			int id =(int)ValueOf(newID);
 		}
 		
+	private static Object ValueOf(String iD2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static void updateCustomer() {
+		RestAssured.baseURI = "http://invoice.primetech-apps.com/api/v1/customers/207";
+		
+		String requestBody = "{\n"
+				+ "    \"name\": \"Testy Besties for lovers\",\n"
+				+ "    \"email\": \"testy.besties@lovers.com\",\n"
+				+ "    \"password\": \"itisapassword\",\n"
+				+ "    \"companies\": [\n"
+				+ "        {\n"
+				+ "            \"id\": \"1\",\n"
+				+ "            \"role\": \"vel\"\n"
+				+ "        }\n"
+				+ "    ]\n"
+				+ "}";
+		String token = "170|32AvzJHLaMW5Iz07C5BIZEkPiefKuPOghJZJZMKl";
+		
+		Response myResponse = RestAssured.given().accept(ContentType.JSON)
+				.contentType("application/json").headers("Authorization", "Bearer  " +token)
+				.body(requestBody).when().put();
+		
+		myResponse.then().statusCode(200).and().contentType("application/json");
+		myResponse.prettyPrint();
+	}
 	
 	public static void deleteCustomer() {
 		
@@ -51,11 +85,11 @@ public class customersApi {
 		
 		String requestBody = "{\n"
 				+ "    \"ids\": [\n"
-				+ "        193\n"
+				+ "        216\n"
 				+ "    ]\n"
 				+ "}\n"
 				+ "";
-		String token = "130|F7DmoLrlXwtebolAjekTBOk9kfo1f3GjzVpGX3Ak";
+		String token = "206|bqEAskdSDXEh5HtR4ZODx9mfyvl28JXmCSkBacSN";
 		
 		
 		Response myResponse = RestAssured.given().accept(ContentType.JSON)
