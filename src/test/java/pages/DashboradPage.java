@@ -12,6 +12,11 @@ public DashboradPage() {
 
    @FindBy (xpath = "//span[text()='Amount Due']")
     public WebElement amountDueText;
+   
+   @FindBy (linkText = "/admin/customers")
+   public WebElement Customers;
+   
+ 
 
 
 

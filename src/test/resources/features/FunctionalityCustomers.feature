@@ -30,20 +30,24 @@ Feature: CraterCustomerFunctionality
     And user is able to click on the buttons to navigate the page
     
       @CustomerPageNavigation
-  Scenario: Navigate to the Prime Tech Invoice Application Customer Menu Link and clicking on +New Customer
-    Given user should see the following sections Basic Info", "Portal Access", "Billing Address", "Shipping Address"
-   And user clicks on the 'Save Customer'
-    Then the following message should appear "Success!Customer created successfully" with a close button to the right. 
-    And The flash message should disappear within 5 seconds or less
-    Then The user can close the flash message by clicking on the 'X' button. 
+  Scenario: Verifying Icons On Customer Page
+  Given Navigate to the Prime Tech Invoice Application Customer Menu Link 
+  Then user should be able to click on +New Customer
+    Then user should see the following sections Basic Info, Portal Access, Billing Address, Shipping Address
+    Then user clicks on the Save Customer
+    Then the following message should appear Success!Customer created successfully 
+    And  a close button should appear to the right 
+    And The flash message should disappear within five seconds or less
+    Then The user can close the flash message by clicking on the X button. 
     Then The user should be navigated to the Sales and expenses page.
-    Then user sees the following: "Basic Info", "Portal Access", "Billing Address", "Shipping Address"
+    Then user sees the following: Basic Info, Portal Access, Billing Address, Shipping Address
     And the customer information should be saved
-    Then should display "Basic Info", "Portal Access", "Billing Address", "Shipping Address"
+    Then the user should see customer's information
   
    @CustomerPageOther
-   Scenario: Navigate to the Prime Tech Invoice Application 'Customer' Menu Link
-   Given: A page with the data should appear
+   Scenario: Verifying Customers Dashboard
+   Given Navigate to the Prime Tech Invoice Application Customer Menu Link
+   Then A page with the data should appear
    And user can select Check box for each customer row
    And user sees a column with Name, showing all entered customers
    And user sees a phone column 
