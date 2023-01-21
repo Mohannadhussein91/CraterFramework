@@ -1,5 +1,6 @@
 package step_definitions;
 
+
 import org.junit.Assert;
 
 import io.cucumber.java.en.And;
@@ -21,10 +22,12 @@ public class VerifyingCustomerFunctionality {
 		valid.click_on_the_login_button();
 		Thread.sleep(3000);
 	    dashborad.Customers.click();
-	   
+
 	}
+
 	@Given("User should see an  icon titled Customer with the menu navigation path as Home\\/Customers")
 	public void user_should_see_an_icon_titled_customer_with_the_menu_navigation_path_as_home_customers() {
+
 	  Assert.assertTrue(customer.homeText.isDisplayed());
 	  Assert.assertTrue(customer.customerText.isDisplayed());
 	}
@@ -53,8 +56,7 @@ public class VerifyingCustomerFunctionality {
 //	   Assert.assertTrue(customer.option3.isDisplayed());
 //	   
 	   
-	   
 	
 
-	}
+}
 }
