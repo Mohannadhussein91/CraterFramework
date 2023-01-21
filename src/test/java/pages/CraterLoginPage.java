@@ -11,6 +11,7 @@ import utils.TestDataReader;
 public class CraterLoginPage {
 	BrowserUtils browser = new BrowserUtils();
 
+
 	public CraterLoginPage() {
 		PageFactory.initElements(Driver.getDriver(), this);
 	}
