@@ -5,7 +5,9 @@
     <classes>
       <class name="api_tests.ApiTest">
         <methods>
+          <include name="cleanUp"/>
           <include name="setup"/>
+          <include name="updateCustomer"/>
           <include name="createCustomer"/>
           <include name="login"/>
         </methods>

@@ -9,9 +9,9 @@ import io.restassured.response.Response;
 public class customersApi {
 	public static void main(String[] args) {
 		
-		//createCustomer();
+		createCustomer();
 		//updateCustomer();
-		deleteCustomer();
+		//deleteCustomer();
 	
 	
 		
@@ -24,7 +24,7 @@ public class customersApi {
 		
 			RestAssured.baseURI = "http://invoice.primetech-apps.com/api/v1/customers";
 			
-			String token = "220|3WDMmzFCU6bvYmTGC2nm1VEcDN15DhsAOkjaelyA";
+			String token = "232|G43gOTJkNUkHfMH8LLz5CvIRniJo7FrI7y0SzOM8";
 			String requestBody = "{\n"
 					+ "    \"name\": \"Hussein18\",\n"
 					+ "    \"email\": \"jekshfssffxvddnelle@example.org\",\n"

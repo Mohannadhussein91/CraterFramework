@@ -6,7 +6,9 @@ import io.restassured.response.Response;
 
 public class ApiLogin {
 	static String Token;
-	
+	public static void main(String[] args) {
+		//login();
+	}
 	
 	
 	public static void login() {
