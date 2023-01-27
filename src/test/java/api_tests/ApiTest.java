@@ -9,10 +9,16 @@ import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import utils.BrowserUtils;
 
 public class ApiTest {
 	String token;
 	String customerId;
+	BrowserUtils browser = new BrowserUtils();
+	
+	
+	
+	
 	
   @BeforeTest
 	public void setup() {
@@ -46,8 +52,8 @@ public class ApiTest {
   public void createCustomer() {
 	  
 		String requestBody1 = "{\n"
-				+ "    \"name\": \"Hussein13\",\n"
-				+ "    \"email\": \"jenkins134555555.sdfds@example.org\",\n"
+				+ "    \"name\": \"Hussein\",\n"
+				+ "    \"email\": \"jenkins"+browser.randomNumber()+"@example.org\",\n"
 				+ "    \"enable_portal\": true,\n"
 				+ "    \"billing\": [],\n"
 				+ "    \"shipping\": []\n"
@@ -70,8 +76,8 @@ public class ApiTest {
   @Test (dependsOnMethods= "createCustomer")
     public void updateCustomer() {
 	  String requestBody = "{\n"
-				+ "    \"name\": \"Testy Besties for lovers1\",\n"
-				+ "    \"email\": \"testy.besties146@lovers.com\",\n"
+				+ "    \"name\": \"Testy Besties for lovers\",\n"
+				+ "    \"email\": \"testy.besties"+browser.randomNumber()+"@lovers.com\",\n"
 				+ "    \"password\": \"itisapassword\",\n"
 				+ "    \"companies\": [\n"
 				+ "        {\n"
@@ -106,7 +112,7 @@ public void deleteCustomer() {
 	
 	myResponse.then().statusCode(200).and().contentType("application/json");
 	myResponse.prettyPrint();
-	  myResponse.asString();
+	 
 	 
 	 Assert.assertTrue(myResponse.asString().contains("true"));
 }

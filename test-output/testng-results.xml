@@ -2,32 +2,32 @@
 <testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-24T20:00:42 MST" name="Default suite" finished-at="2023-01-24T20:00:46 MST" duration-ms="4142">
+  <suite started-at="2023-01-26T20:53:49 MST" name="Default suite" finished-at="2023-01-26T20:53:53 MST" duration-ms="3961">
     <groups>
     </groups>
-    <test started-at="2023-01-24T20:00:42 MST" name="Default test" finished-at="2023-01-24T20:00:46 MST" duration-ms="4142">
+    <test started-at="2023-01-26T20:53:49 MST" name="Default test" finished-at="2023-01-26T20:53:53 MST" duration-ms="3961">
       <class name="api_tests.ApiTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:api_tests.ApiTest@159f197]" started-at="2023-01-24T20:00:42 MST" name="setup" finished-at="2023-01-24T20:00:42 MST" duration-ms="324" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:api_tests.ApiTest@6ac13091]" started-at="2023-01-26T20:53:49 MST" name="setup" finished-at="2023-01-26T20:53:49 MST" duration-ms="259" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="login()[pri:0, instance:api_tests.ApiTest@159f197]" started-at="2023-01-24T20:00:42 MST" name="login" finished-at="2023-01-24T20:00:44 MST" duration-ms="1661" status="PASS">
+        <test-method signature="login()[pri:0, instance:api_tests.ApiTest@6ac13091]" started-at="2023-01-26T20:53:49 MST" name="login" finished-at="2023-01-26T20:53:50 MST" duration-ms="1416" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method signature="createCustomer()[pri:0, instance:api_tests.ApiTest@159f197]" started-at="2023-01-24T20:00:44 MST" name="createCustomer" finished-at="2023-01-24T20:00:44 MST" depends-on-methods="api_tests.ApiTest.login" duration-ms="660" status="PASS">
+        <test-method signature="createCustomer()[pri:0, instance:api_tests.ApiTest@6ac13091]" started-at="2023-01-26T20:53:50 MST" name="createCustomer" finished-at="2023-01-26T20:53:51 MST" depends-on-methods="api_tests.ApiTest.login" duration-ms="640" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createCustomer -->
-        <test-method signature="updateCustomer()[pri:0, instance:api_tests.ApiTest@159f197]" started-at="2023-01-24T20:00:44 MST" name="updateCustomer" finished-at="2023-01-24T20:00:45 MST" depends-on-methods="api_tests.ApiTest.createCustomer" duration-ms="656" status="PASS">
+        <test-method signature="updateCustomer()[pri:0, instance:api_tests.ApiTest@6ac13091]" started-at="2023-01-26T20:53:51 MST" name="updateCustomer" finished-at="2023-01-26T20:53:52 MST" depends-on-methods="api_tests.ApiTest.createCustomer" duration-ms="573" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- updateCustomer -->
-        <test-method signature="deleteCustomer()[pri:0, instance:api_tests.ApiTest@159f197]" started-at="2023-01-24T20:00:45 MST" name="deleteCustomer" finished-at="2023-01-24T20:00:45 MST" depends-on-methods="api_tests.ApiTest.updateCustomer" duration-ms="440" status="PASS">
+        <test-method signature="deleteCustomer()[pri:0, instance:api_tests.ApiTest@6ac13091]" started-at="2023-01-26T20:53:52 MST" name="deleteCustomer" finished-at="2023-01-26T20:53:52 MST" depends-on-methods="api_tests.ApiTest.updateCustomer" duration-ms="537" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteCustomer -->
-        <test-method signature="logout()[pri:0, instance:api_tests.ApiTest@159f197]" started-at="2023-01-24T20:00:45 MST" name="logout" finished-at="2023-01-24T20:00:46 MST" depends-on-methods="api_tests.ApiTest.deleteCustomer" duration-ms="374" status="PASS">
+        <test-method signature="logout()[pri:0, instance:api_tests.ApiTest@6ac13091]" started-at="2023-01-26T20:53:52 MST" name="logout" finished-at="2023-01-26T20:53:53 MST" depends-on-methods="api_tests.ApiTest.deleteCustomer" duration-ms="508" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logout -->
