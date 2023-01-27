@@ -1,7 +1,7 @@
-@CustomerFunctionality @SmokeTest
+@CustomerFunctionality 
 Feature: CraterCustomerFunctionality
 
-  @CustomerPage
+  @CustomerPage @smokeTest
   Scenario: Verifying Customer Page Components
 
     Given Navigate to the Prime Tech Invoice Application Customer Menu Link
