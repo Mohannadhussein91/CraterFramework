@@ -7,16 +7,25 @@ import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import utils.BrowserUtils;
 
 public class ApiTest {
-	String Token;
-	int ID;
+	String token;
+	String customerId;
+	BrowserUtils browser = new BrowserUtils();
+	
+	
+	
+	
 	
   @BeforeTest
 	public void setup() {
 	  RestAssured.baseURI = "http://invoice.primetech-apps.com/api";
 	}
+  
+  
   @Test
   public void login() {
 	   String requestBody = "{\n"
@@ -32,8 +41,9 @@ public class ApiTest {
 		
 		myResponse.then().statusCode(200).and().contentType("application/json");
 		myResponse.prettyPrint();
-		
-		Token = myResponse.asString().substring(25, myResponse.asString().length()-1);
+		token = myResponse.body().jsonPath().getString("token");
+	//	Token = myResponse.asString().substring(25, myResponse.asString().length()-1); didnt work
+	
     
   }
   
@@ -42,34 +52,32 @@ public class ApiTest {
   public void createCustomer() {
 	  
 		String requestBody1 = "{\n"
-				+ "    \"name\": \"Hussein12\",\n"
-				+ "    \"email\": \"jenkins.sdfds@example.org\",\n"
+				+ "    \"name\": \"Hussein\",\n"
+				+ "    \"email\": \"jenkins"+browser.randomNumber()+"@example.org\",\n"
 				+ "    \"enable_portal\": true,\n"
 				+ "    \"billing\": [],\n"
 				+ "    \"shipping\": []\n"
 				+ "}";
 		
-		
-		System.out.println("Bearer " +Token);
 		Response myResponse = RestAssured.given().accept(ContentType.JSON)
-				.contentType("application/json").headers("Authorization","Bearer  " +Token)
+				.contentType("application/json").headers("Authorization","Bearer  " +token)
 				.body(requestBody1).when().post("/v1/customers");
 	
 		myResponse.then().statusCode(200).and().contentType("application/json");
 		myResponse.prettyPrint();
-		String newID = myResponse.asString().substring(14, 17);
-	    ID =(int)ValueOf(newID);
+		customerId = myResponse.body().jsonPath().getString("data.id");
+		
+		
+		
+
  }
   
-  private int ValueOf(String newID) {
-	// TODO Auto-generated method stub
-	return 0;
-}
-@Test (dependsOnMethods = "createCustomer")
-  public void updateCustomer() {
+
+  @Test (dependsOnMethods= "createCustomer")
+    public void updateCustomer() {
 	  String requestBody = "{\n"
 				+ "    \"name\": \"Testy Besties for lovers\",\n"
-				+ "    \"email\": \"testy.besties@lovers.com\",\n"
+				+ "    \"email\": \"testy.besties"+browser.randomNumber()+"@lovers.com\",\n"
 				+ "    \"password\": \"itisapassword\",\n"
 				+ "    \"companies\": [\n"
 				+ "        {\n"
@@ -79,37 +87,32 @@ public class ApiTest {
 				+ "    ]\n"
 				+ "}";
 	
-		
+	   System.out.println(token);
 		Response myResponse = RestAssured.given().accept(ContentType.JSON)
-				.contentType("application/json").headers("Authorization", "Bearer  " +Token)
-				.body(requestBody).when().put("v1/customers/" +ID);
+				.contentType("application/json").headers("Authorization", "Bearer " +token)
+				.body(requestBody).when().put("/v1/customers/"+customerId);
 		
 		myResponse.then().statusCode(200).and().contentType("application/json");
 		myResponse.prettyPrint();
+		
 	}
-	
-@AfterTest (enabled = true)
-public void cleanUp() {
-	deleteCustomer();
-	
-}
 
 
+@Test (dependsOnMethods= "updateCustomer")
 public void deleteCustomer() {
 	String requestBody = "{\n"
 			+ "    \"ids\": [\n"
-			+ "        "+ID+"\n"
+			+ "        "+customerId+"\n"
 			+ "    ]\n"
-			+ "}\n"
-			+ "";
+			+ "}";
 	
 	Response myResponse = RestAssured.given().accept(ContentType.JSON)
-			.contentType("application/json").headers("Authorization", "Bearer  " +Token)
+			.contentType("application/json").headers("Authorization", "Bearer  " +token)
 			.body(requestBody).when().post("/v1/customers/delete");
 	
 	myResponse.then().statusCode(200).and().contentType("application/json");
 	myResponse.prettyPrint();
-	  myResponse.asString();
+	 
 	 
 	 Assert.assertTrue(myResponse.asString().contains("true"));
 }
@@ -119,11 +122,11 @@ public void deleteCustomer() {
   
   
   
-  @Test (dependsOnMethods = "login")
+  @Test (dependsOnMethods = "deleteCustomer")
   public void logout() {
 	  
 		Response myResponse = RestAssured.given().accept(ContentType.JSON)
-				.contentType("application/json").headers("Authorization", "Bearer "+Token).when()
+				.contentType("application/json").headers("Authorization", "Bearer "+token).when()
 				.post("/v1/auth/logout");
 		
 		   myResponse.then().statusCode(200).and().contentType("application/json");
