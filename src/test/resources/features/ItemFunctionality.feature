@@ -1,4 +1,4 @@
-@ItemFunctionality  @smokeTest
+@ItemFunctionality  @SmokeTest
 Feature: Crater Item Functionality
 
    @ItemPage
